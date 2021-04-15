@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1096121341368",
+    "project_id": "travel-triangle",
+    "storage_bucket": "travel-triangle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096121341368:android:aa4711b97cdf0bc41b6b4d",
+        "android_client_info": {
+          "package_name": "com.panshul.traveltriangle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096121341368-5ukf9nt43ehjpa7cqv428t1k157hggu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.panshul.traveltriangle",
+            "certificate_hash": "6219e2a9ee691c6cf54a5b8dc995d8450fc61074"
+          }
+        },
+        {
+          "client_id": "1096121341368-a1ck9c73lq0c1p97pube0v0nmeepmdq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiyNSCnYGeoeXxiiSnUwcxGr3oXFwAI3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096121341368-a1ck9c73lq0c1p97pube0v0nmeepmdq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

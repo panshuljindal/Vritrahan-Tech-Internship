@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/navigation_tests"
+        android:title="Tests"
+        android:icon="@drawable/ic_book"/>
+
+    <item
+        android:id="@+id/navigation_select"
+        android:title="Select"
+        android:icon="@drawable/ic_select"/>
+
+    <item
+        android:id="@+id/navigation_courses"
+        android:title="Courses"
+        android:icon="@drawable/ic_tv"/>
+
+    <item
+        android:id="@+id/navigation_doubts"
+        android:title="Doubts"
+        android:icon="@drawable/ic_chat"/>
+
+
+</menu>

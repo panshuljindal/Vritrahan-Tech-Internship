@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Prelims Guru</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Open Navigation Bar</string>
+    <string name="navigation_drawer_close">Close Navigation Bar</string>
+    <string name="warning"><u>Note</u></string>
+    <string name="analysis">Detailed Analysis and Solutions will be available at <b>08:30 PM on April 30, 2021</b></string>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_syllabus"
+            android:title="Prelims Syllabus"
+            android:icon="@drawable/ic_info">
+
+        </item>
+        <item android:id="@+id/nav_contactus"
+            android:title="Contact Us"
+            android:icon="@drawable/ic_phone">
+
+        </item>
+        <item android:id="@+id/nav_features"
+            android:title="Features and FAQ"
+            android:icon="@drawable/ic_question">
+
+        </item>
+        <item android:id="@+id/nav_support"
+            android:title="Support Developers"
+            android:icon="@drawable/ic_money">
+
+        </item>
+    </group>
+    <item android:title="Communicate">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/nav_shareapp"
+                    android:title="Share App"
+                    android:icon="@drawable/ic_share">
+                </item>
+
+                <item android:id="@+id/nav_rateus"
+                    android:title="Rate 5 Stars"
+                    android:icon="@drawable/ic_review">
+                </item>
+
+                <item android:id="@+id/nav_about"
+                    android:title="About Us"
+                    android:icon="@drawable/ic_about">
+                </item>
+
+                <item android:id="@+id/nav_privacy"
+                    android:title="Privacy Policy"
+                    android:icon="@drawable/ic_privacy"></item>
+            </group>
+        </menu>
+    </item>
+
+</menu>

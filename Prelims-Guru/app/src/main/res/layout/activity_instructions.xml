@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Instructions">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/insturctionsStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginRight="110dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/exambutton"
+                android:fontFamily="@font/inter_medium"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="Start"
+                android:textColor="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet enim tortor at auctor urna. Eget nullam non nisi est sit. Metus aliquam eleifend mi in nulla posuere. Massa massa ultricies mi quis hendrerit dolor. Amet venenatis urna cursus eget nunc scelerisque. Facilisi cras fermentum odio eu feugiat. Et malesuada fames ac turpis egestas. Laoreet sit amet cursus sit amet dictum sit amet. Nibh nisl condimentum id venenatis a condimentum vitae. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Est lorem ipsum dolor sit amet consectetur. Morbi leo urna molestie at elementum eu facilisis sed. Aliquam ultrices sagittis orci a. Fames ac turpis egestas sed tempus urna et. Odio aenean sed adipiscing diam donec.  \n\nEget magna fermentum iaculis eu non diam. Enim nec dui nunc mattis enim ut tellus elementum. In ornare quam viverra orci sagittis eu volutpat odio facilisis. Amet nisl suscipit adipiscing bibendum. Id faucibus nisl tincidunt eget nullam. Praesent elementum facilisis leo vel. Malesuada bibendum arcu vitae elementum curabitur. Facilisis sed odio morbi quis commodo odio aenean sed. Sem viverra aliquet eget sit. Sit amet nulla facilisi morbi. Nunc non blandit massa enim nec dui. Faucibus in ornare quam viverra orci sagittis eu volutpat. Eu facilisis sed odio morbi quis commodo. Eleifend donec pretium vulputate sapien nec sagittis aliquam. Id ornare arcu odio ut. Accumsan in nisl nisi scelerisque. Consequat ac felis donec et odio pellentesque diam."
+                android:textColor="#000"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Instructions"
+                android:textColor="#000"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
