@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.panshul.traveltriangle.Activity.MainActivity;
 import com.panshul.traveltriangle.Model.FormModel.FormData;
 import com.panshul.traveltriangle.R;
 
@@ -50,6 +51,14 @@ public class Plan2 extends AppCompatActivity {
         onclick();
     }
     public void onclick(){
+        ImageView cross = findViewById(R.id.imageViewPlan2);
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
         dD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +66,8 @@ public class Plan2 extends AppCompatActivity {
                 days1 = false;
                 days.setText("Days");
                 noOfDays=1;
+                dDImageMain.setImageResource(R.drawable.ic_dd);
+                dnDImageMain.setImageResource(R.drawable.ic_dnd);
                 next.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.grey_next));
                 dnDCalendar.setVisibility(View.GONE);
                 finalDate.setVisibility(View.GONE);
@@ -73,6 +84,8 @@ public class Plan2 extends AppCompatActivity {
                 depart = false;
                 days1 = false;
                 days.setText("Days");
+                dDImageMain.setImageResource(R.drawable.ic_dnd);
+                dnDImageMain.setImageResource(R.drawable.ic_dd);
                 noOfDays=1;
                 next.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.grey_next));
                 dnDCalendar.setVisibility(View.VISIBLE);

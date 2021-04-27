@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.panshul.traveltriangle.Activity.MainActivity;
 import com.panshul.traveltriangle.Model.FormModel.FormData;
 import com.panshul.traveltriangle.R;
 
@@ -38,6 +39,14 @@ public class Plan3 extends AppCompatActivity {
         onclickListeners();
     }
     public void onclickListeners(){
+        ImageView cross = findViewById(R.id.imageViewPlan3);
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
         star5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,6 +178,8 @@ public class Plan3 extends AppCompatActivity {
             public void onClick(View v) {
                 flight.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.plan2_background_selected));
                 cab.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.plan2_background));
+                flightMain.setImageResource(R.drawable.ic_flight_selected);
+                cabMain.setImageResource(R.drawable.ic_cab_unselected);
                 cabTick.setVisibility(View.INVISIBLE);
                 flightTick.setVisibility(View.VISIBLE);
                 inclusions = "Flight";
@@ -179,6 +190,8 @@ public class Plan3 extends AppCompatActivity {
             public void onClick(View v) {
                 cab.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.plan2_background_selected));
                 flight.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.plan2_background));
+                flightMain.setImageResource(R.drawable.ic_flight_unselected);
+                cabMain.setImageResource(R.drawable.ic_cab_selected);
                 cabTick.setVisibility(View.VISIBLE);
                 flightTick.setVisibility(View.INVISIBLE);
                 inclusions = "Cab";

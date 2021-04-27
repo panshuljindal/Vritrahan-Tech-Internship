@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 public class Signup extends AppCompatActivity {
 
     EditText name,email,phone,password,confirmPassword;
-    Button signup;
+    Button signup,cross;
     TextView signUpToLoginText;
     ImageView back;
     CardView google,facebook;
@@ -67,9 +67,15 @@ public class Signup extends AppCompatActivity {
         signup = findViewById(R.id.signUpButton);
         google = findViewById(R.id.googleCardViewSignUp);
         signUpToLoginText =findViewById(R.id.signUptoLogin);
-        back = findViewById(R.id.imageView7);
+        back = findViewById(R.id.crossSignUp);
     }
     public void onclicklisteners(){
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

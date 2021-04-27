@@ -17,11 +17,14 @@ public class FormData {
     String email;
     String phone;
     String send_updates;
+    String willBook;
+    String age;
+    String localExperiences;
     public FormData(){
 
     }
 
-    public FormData(String id, String to, String from, String exploring, String month, String departure_date, String no_of_days, String hotel_category, String other_inclusions, String budget, String adults, String children, String infant, String email, String phone, String send_updates) {
+    public FormData(String id, String to, String from, String exploring, String month, String departure_date, String no_of_days, String hotel_category, String other_inclusions, String budget, String adults, String children, String infant, String email, String phone, String send_updates, String willBook, String age, String localExperiences) {
         this.id = id;
         this.to = to;
         this.from = from;
@@ -38,6 +41,9 @@ public class FormData {
         this.email = email;
         this.phone = phone;
         this.send_updates = send_updates;
+        this.willBook = willBook;
+        this.age = age;
+        this.localExperiences = localExperiences;
     }
 
     public String getId() {
@@ -166,5 +172,29 @@ public class FormData {
 
     public void setSend_updates(String send_updates) {
         this.send_updates = send_updates;
+    }
+
+    public String getWillBook() {
+        return willBook;
+    }
+
+    public void setWillBook(String willBook) {
+        this.willBook = willBook;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getLocalExperiences() {
+        return localExperiences;
+    }
+
+    public void setLocalExperiences(String localExperiences) {
+        this.localExperiences = localExperiences;
     }
 }

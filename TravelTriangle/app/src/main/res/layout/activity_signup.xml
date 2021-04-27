@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.PlanHoliday.Signup">
+    tools:context=".Activity.Signup"
+    android:background="#fff">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
             android:elevation="2dp">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/crossSignUp"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_marginStart="30dp"
@@ -48,7 +49,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/google_background">
+                    android:background="@drawable/facebook_background">
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -93,18 +94,20 @@
                 android:text="Sign Up"
                 android:textColor="#000"
                 android:textSize="19dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintStart_toEndOf="@+id/crossSignUp"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/signUpName"
                 android:layout_width="0dp"
+                android:drawableLeft="@drawable/ic_people_signup"
+                android:drawablePadding="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginRight="25dp"
+                    android:layout_marginRight="25dp"
                 android:background="@drawable/signup_edittext"
                 android:ems="10"
                 android:fontFamily="@font/sf_pro_text_regular"
@@ -124,6 +127,8 @@
 
             <EditText
                 android:id="@+id/signUpEmail"
+                android:drawableLeft="@drawable/ic_mail"
+                android:drawablePadding="12dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -157,7 +162,8 @@
                 android:layout_marginEnd="25dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/signup_edittext"
-                android:editable="false"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:fontFamily="@font/sf_pro_text_regular"
                 android:hint="Phone Number"
@@ -182,7 +188,8 @@
                 android:layout_marginEnd="25dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/signup_edittext"
-                android:editable="false"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
                 android:ems="10"
                 android:fontFamily="@font/sf_pro_text_regular"
                 android:hint="Password"
@@ -207,9 +214,10 @@
                 android:layout_marginEnd="25dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/signup_edittext"
-                android:editable="false"
                 android:ems="10"
                 android:fontFamily="@font/sf_pro_text_regular"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:paddingLeft="12dp"

@@ -17,9 +17,11 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.panshul.traveltriangle.Activity.MainActivity;
 import com.panshul.traveltriangle.Model.FormModel.FormData;
 import com.panshul.traveltriangle.R;
 
@@ -36,6 +38,14 @@ public class Plan1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan1);
+        ImageView cross = findViewById(R.id.imageViewPlan1);
+        cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
         from = findViewById(R.id.fromTextView);
         where = findViewById(R.id.whereGoTextView);
         next = findViewById(R.id.nextPlan1);
@@ -69,7 +79,7 @@ public class Plan1 extends AppCompatActivity {
     private void initializeForm(){
         data = new FormData(UUID.randomUUID().toString()
                 ,"null","null","null","null","null","null","null","null","null","null"
-                ,"null","null","null","null","null");
+                ,"null","null","null","null","null","null","null","null");
         saveData();
     }
     public void saveData(){

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import com.panshul.traveltriangle.R;
 
 public class MenuFragment extends Fragment {
+
+    View view;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

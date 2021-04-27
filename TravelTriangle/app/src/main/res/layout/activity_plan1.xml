@@ -28,7 +28,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPlan1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_chat" />
 
@@ -44,7 +44,7 @@
         app:srcCompat="@drawable/ic_phone" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewPlan1"
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_marginTop="18dp"
@@ -152,14 +152,16 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="25dp"
+        android:textColorHint="#A3A3A3"
+        android:textSize="18dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/signup_edittext"
         android:drawableLeft="@drawable/ic_location"
         android:drawablePadding="10dp"
         android:hint="Where You Want to Go?"
+        android:inputType="textCapWords"
         android:paddingLeft="10dp"
         android:paddingTop="12dp"
-
         android:paddingRight="10dp"
         android:paddingBottom="12dp"
         android:text=""
@@ -213,20 +215,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:background="@drawable/signup_edittext"
         android:drawableLeft="@drawable/ic_location"
         android:drawablePadding="10dp"
+        android:textColorHint="#A3A3A3"
+        android:textSize="18dp"
         android:hint="From Location.."
+        android:inputType="textCapWords"
         android:paddingLeft="10dp"
-
         android:paddingTop="12dp"
         android:paddingRight="10dp"
         android:paddingBottom="12dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

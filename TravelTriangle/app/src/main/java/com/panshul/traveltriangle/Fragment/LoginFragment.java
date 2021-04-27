@@ -7,8 +7,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.experimental.Experimental;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -153,11 +157,16 @@ public class LoginFragment extends Fragment {
                     myref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Log.i("uid",uid);
                             try {
                                 UserData userData = snapshot.child(uid).getValue(UserData.class);
                                 saveData();
-
+                                Toast.makeText(view.getContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                                BookingFragment momDiagFrag = new BookingFragment();
+                                FragmentManager fragmentManager = ((FragmentActivity) view.getContext()).getSupportFragmentManager();
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.frameLayout,momDiagFrag);
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
                             }
                             catch (Exception e){
                                 Toast.makeText(view.getContext(), "SignUp First", Toast.LENGTH_SHORT).show();
@@ -182,14 +191,19 @@ public class LoginFragment extends Fragment {
         myref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserData user = snapshot.child(uid).getValue(UserData.class);
-                SharedPreferences pref = view.getContext().getSharedPreferences("com.panshul.travel.userdata", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("name",user.getName());
-                editor.putString("uid",user.getUid());
-                editor.putString("email",user.getEmail());
-                editor.putString("phone",user.getPhone());
-                editor.apply();
+                try {
+                    UserData user = snapshot.child(uid).getValue(UserData.class);
+                    SharedPreferences pref = view.getContext().getSharedPreferences("com.panshul.travel.userdata", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("name",user.getName());
+                    editor.putString("uid",user.getUid());
+                    editor.putString("email",user.getEmail());
+                    editor.putString("phone",user.getPhone());
+                    editor.apply();
+                }
+                catch (NullPointerException e){
+                    Toast.makeText(view.getContext(), "Please SignUp Before Login", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
