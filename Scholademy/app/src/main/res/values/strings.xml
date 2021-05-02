@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Scholademy</string>
+
+    <string name="emailID">Enter Email ID</string>
+    <string name="password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="noAccount">Don’t have an account?</string>
+    <string name="signUp"><u>Sign Up</u></string>
+    <string name="fullName">Enter your Full Name</string>
+    <string name="cityResidence">Enter your city of residence</string>
+    <string name="enterPhone">Enter your phone number</string>
+    <string name="alreadyAccount">Already have a account?</string>
+    <string name="createAccount">Create Account</string>
+    <string name="loginText"><u>Login</u></string>
+    <string name="tagLine">Grab your ideal ground</string>
+
+    <string name="navigation_drawer_open">Open Navigation Bar</string>
+    <string name="navigation_drawer_close">Close Navigation Bar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="upload">Upload</string>
+    <string name="uploadMessage">Thank you for your contribution</string>
+    <string name="uploadMessage2">Help out a friend.</string>
+    <string name="add">ADD A FILE</string>
+    <string name="submit">SUBMIT</string>
+    <string name="cancel">CANCEL</string>
+    <string name="preview">PREVIEW</string>
+    <string name="rupee">\u20B9</string>
+</resources>

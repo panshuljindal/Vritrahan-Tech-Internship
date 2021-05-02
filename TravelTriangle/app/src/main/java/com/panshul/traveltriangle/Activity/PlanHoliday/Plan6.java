@@ -34,7 +34,7 @@ public class Plan6 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan6);
-
+        findViewByIds();
         SharedPreferences pref = getSharedPreferences("com.panshul.travel.userdata", Context.MODE_PRIVATE);
         email1 = pref.getString("email","");
         phone1 = pref.getString("phone","");
@@ -43,7 +43,6 @@ public class Plan6 extends AppCompatActivity {
         where1=false;
         from1 = false;
         loadData();
-        findViewByIds();
         onclick();
 
     }

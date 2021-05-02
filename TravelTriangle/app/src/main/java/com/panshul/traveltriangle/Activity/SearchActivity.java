@@ -159,11 +159,10 @@ public class SearchActivity extends AppCompatActivity {
 
     public void displayData(){
         packageList = new ArrayList<>();
-        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 25000","709000+ Travelers served by 20+ Experts",12));
-        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 25000","709000+ Travelers served by 20+ Experts",12));
-        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 25000","709000+ Travelers served by 20+ Experts",12));
-        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 25000","709000+ Travelers served by 20+ Experts",12));
-        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 25000","709000+ Travelers served by 20+ Experts",12));
+        packageList.add(new ItemModel("Himachal",getResources().getString(R.string.rupee)+" 15999","709000+ Travelers served by 20+ Experts",R.drawable.himachal));
+        packageList.add(new ItemModel("Andaman",getResources().getString(R.string.rupee)+" 29999","569000+ Travelers served by 20+ Experts",R.drawable.andaman));
+        packageList.add(new ItemModel("Nainital",getResources().getString(R.string.rupee)+" 19999","9000+ Travelers served by 20+ Experts",R.drawable.nainital));
+        packageList.add(new ItemModel("Jaipur",getResources().getString(R.string.rupee)+" 12999","8000+ Travelers served by 20+ Experts",R.drawable.jaipur));
 
         ItemRecyclerAdapter adapter = new ItemRecyclerAdapter(packageList,this);
         LinearLayoutManager manager = new LinearLayoutManager(this);

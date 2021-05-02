@@ -65,31 +65,36 @@ public class MainActivity extends AppCompatActivity {
         saveData();
     }
     public void saveData(){
-        FirebaseAuth mauth = FirebaseAuth.getInstance();
-        String uid = mauth.getCurrentUser().getUid();
-        myref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                try {
-                    UserData user = snapshot.child(uid).getValue(UserData.class);
-                    SharedPreferences pref = getSharedPreferences("com.panshul.travel.userdata", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("name",user.getName());
-                    editor.putString("uid",user.getUid());
-                    editor.putString("email",user.getEmail());
-                    editor.putString("phone",user.getPhone());
-                    editor.apply();
-                }
-                catch (NullPointerException e){
-                    Toast.makeText(MainActivity.this, "Please SignUp Before Login", Toast.LENGTH_SHORT).show();
-                }
-            }
+        try {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+            FirebaseAuth mauth = FirebaseAuth.getInstance();
+            String uid = mauth.getCurrentUser().getUid();
+            myref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    try {
+                        UserData user = snapshot.child(uid).getValue(UserData.class);
+                        SharedPreferences pref = getSharedPreferences("com.panshul.travel.userdata", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("name", user.getName());
+                        editor.putString("uid", user.getUid());
+                        editor.putString("email", user.getEmail());
+                        editor.putString("phone", user.getPhone());
+                        editor.apply();
+                    } catch (NullPointerException e) {
+                        Toast.makeText(MainActivity.this, "Please SignUp Before Login", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }catch (Exception e){
+
+        }
     }
     Boolean doubleback=false;
     @Override

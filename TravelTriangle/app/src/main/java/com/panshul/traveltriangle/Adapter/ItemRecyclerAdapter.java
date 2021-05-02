@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
         holder.cityName.setText(model.getName());
         holder.data.setText(model.getData());
         holder.price.setText(model.getPrice());
+        holder.photo.setImageResource(model.getImage());
     }
 
     @Override
@@ -49,8 +51,10 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView cityName,data,price;
+        ImageView photo;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            photo = itemView.findViewById(R.id.photoPackage);
             cityName = itemView.findViewById(R.id.cityName);
             data = itemView.findViewById(R.id.dataPackage);
             price = itemView.findViewById(R.id.packagePrice);
