@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scholademy">
-        <activity android:name=".Activity.Quiz_result"></activity>
+        <activity android:name=".Activity.Login"></activity>
         <activity android:name=".Activity.Quiz" />
         <activity android:name=".Activity.HomeScreen" />
         <activity android:name=".Activity.SignUp" />
         <activity android:name=".Activity.StartQuizActivity" />
         <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.Login">
+        <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

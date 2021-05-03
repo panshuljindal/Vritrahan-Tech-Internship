@@ -30,6 +30,7 @@ import com.panshul.scholademy.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class StartQuizActivity extends AppCompatActivity {
 
@@ -38,7 +39,8 @@ public class StartQuizActivity extends AppCompatActivity {
     ImageView back;
     Button start;
     String type;
-    ArrayList<QuestionModel> question;
+    ArrayList<QuestionModel> question,finalQuestion;
+    ArrayList<Integer> randomList;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +92,20 @@ public class StartQuizActivity extends AppCompatActivity {
                             QuestionModel model = ds.getValue(QuestionModel.class);
                             question.add(model);
                         }
+//                        int size = question.size();
+//                        finalQuestion = new ArrayList<>();
+//                        randomList = new ArrayList<>();
+//                        while (finalQuestion.size()!=size){
+//                            Random random = new Random();
+//                            int number = random.nextInt(size);
+//                            if (randomList.contains(number)){
+//                                continue;
+//                            }
+//                            else {
+//                                randomList.add(number);
+//                                finalQuestion.add(question.get(number));
+//                            }
+//                        }
                         saveData();
                         start.setEnabled(true);
                     }
@@ -113,7 +129,8 @@ public class StartQuizActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(question);
         Intent intent = new Intent(StartQuizActivity.this, Quiz.class);
-
+//        Log.i("json",json);
+//        Log.i("type",String.valueOf(finalQuestion.size()));
         intent.putExtra("question",json);
         //Log.i("type",type);
         intent.putExtra("type",type);

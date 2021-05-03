@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.panshul.scholademy.Model.ContactModel;
 import com.panshul.scholademy.R;
+import com.panshul.scholademy.Services.JavaMailAPI;
+import com.panshul.scholademy.Services.Utils;
 
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -56,6 +58,13 @@ public class ContactFragment extends Fragment {
                             ContactModel model = new ContactModel(name.getText().toString(),email.getText().toString(),
                                     contact.getText().toString(),message.getText().toString(),uuid);
                             myref.child(uid).child(uuid).setValue(model);
+                            String contactUs = "Name: "+name.getText().toString()+"\n"+
+                                    "Email: "+email.getText().toString()+"\n"+
+                                    "Phone Number: "+contact.getText().toString()+"\n"+
+                                    "Message: "+message.getText().toString();
+
+                            JavaMailAPI mailAPI = new JavaMailAPI(view.getContext(), Utils.sender,"Contact Us",contactUs);
+                            mailAPI.execute();
                             email.setText("");
                             name.setText("");
                             contact.setText("");

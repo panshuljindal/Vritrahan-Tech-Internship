@@ -12,8 +12,10 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -255,6 +257,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxClat" />
+
             <CheckBox
                 android:id="@+id/checkBoxSscCgl"
                 android:layout_width="wrap_content"
@@ -271,6 +274,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxJudiciary" />
+
             <CheckBox
                 android:id="@+id/checkBoxBankPo"
                 android:layout_width="wrap_content"
@@ -316,11 +320,12 @@
                 android:checked="false"
                 android:fontFamily="@font/lexend_medium"
                 android:onClick="OnCheckBoxClicked"
-                android:text="Neet"
+                android:text="NEET"
                 android:textColor="#000"
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/signuptext2" />
+
             <CheckBox
                 android:id="@+id/checkBoxIes"
                 android:layout_width="wrap_content"
@@ -337,6 +342,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxNeet" />
+
             <CheckBox
                 android:id="@+id/checkBoxUgcNet"
                 android:layout_width="wrap_content"
@@ -353,6 +359,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxIes" />
+
             <CheckBox
                 android:id="@+id/checkBoxStatePcs"
                 android:layout_width="wrap_content"
@@ -369,6 +376,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxUgcNet" />
+
             <CheckBox
                 android:id="@+id/checkBoxCa"
                 android:layout_width="wrap_content"
@@ -385,6 +393,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxStatePcs" />
+
             <CheckBox
                 android:id="@+id/checkBoxCs"
                 android:layout_width="wrap_content"
@@ -401,6 +410,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxCa" />
+
             <CheckBox
                 android:id="@+id/checkBoxRbi"
                 android:layout_width="wrap_content"
@@ -417,6 +427,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/checkBoxUpscCse"
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxCs" />
+
             <CheckBox
                 android:id="@+id/checkBoxNabard"
                 android:layout_width="wrap_content"

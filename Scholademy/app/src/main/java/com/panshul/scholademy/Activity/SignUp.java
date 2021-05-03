@@ -1,5 +1,6 @@
 package com.panshul.scholademy.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,13 @@ public class SignUp extends AppCompatActivity {
         signUpToLoginText =findViewById(R.id.signUpToLogin);
     }
     public void onclicklisteners(){
+        signUpToLoginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(SignUp.this,Login.class));
+            }
+        });
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,4 +149,5 @@ public class SignUp extends AppCompatActivity {
         Toast.makeText(SignUp.this, "Please enter valid Email ID", Toast.LENGTH_SHORT).show();
         return false;
     }
+
 }

@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.panshul.scholademy.Model.NbsModel;
 import com.panshul.scholademy.R;
+import com.panshul.scholademy.Services.JavaMailAPI;
+import com.panshul.scholademy.Services.Utils;
 
 public class NbsFragment extends Fragment {
 
@@ -49,6 +51,13 @@ public class NbsFragment extends Fragment {
                     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     DatabaseReference myref = FirebaseDatabase.getInstance().getReference("Users");
                     myref.child(uid).child("NBS").setValue(model);
+                    String contactUs = "Father Name: "+fatherName.getText().toString()+"\n"+
+                            "Father Profession: "+fatherProfession.getText().toString()+"\n"+
+                            "Father Annual Income: "+fatherAnnualIncome.getText().toString()+"\n"+
+                            "Father Income Proof: "+fatherIncomeProof.getText().toString();
+
+                    JavaMailAPI mailAPI = new JavaMailAPI(view.getContext(), Utils.sender,"Need Based Scholarship",contactUs);
+                    mailAPI.execute();
                     fatherName.setText("");
                     fatherProfession.setText("");
                     fatherAnnualIncome.setText("");

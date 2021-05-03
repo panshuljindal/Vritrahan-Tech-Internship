@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -22,6 +23,8 @@ import com.google.gson.reflect.TypeToken;
 import com.panshul.scholademy.Model.Answers;
 import com.panshul.scholademy.Model.QuestionModel;
 import com.panshul.scholademy.R;
+import com.panshul.scholademy.Services.JavaMailAPI;
+import com.panshul.scholademy.Services.Utils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -40,11 +43,13 @@ public class Quiz extends AppCompatActivity {
     public static long timeLeft;
     CountDownTimer countDownTimer;
     DatabaseReference myref;
+    SharedPreferences preferences;
     boolean cheat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        preferences = getSharedPreferences("com.panshul.scholademy.userdata",MODE_PRIVATE);
         cheat=false;
         findViewByIds();
         initialise();
@@ -127,14 +132,18 @@ public class Quiz extends AppCompatActivity {
                 submitsubmit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        myref.setValue(String.valueOf(finalScore));
                         countDownTimer.cancel();
+                        myref.child("Answers").setValue(answers);
+                        myref.child("Score").setValue(String.valueOf(finalScore));
+                        String result="Name: "+preferences.getString("name","-")+"\n"
+                                +"Email: "+preferences.getString("email","-") +"\n"
+                                +"Phone Number: "+preferences.getString("phone","")+"\n"
+                                +"User ID: " + FirebaseAuth.getInstance().getCurrentUser().getUid() +"\n"
+                                +"Score: "+ String.valueOf(finalScore);
+                        JavaMailAPI mailAPI2 = new JavaMailAPI(Quiz.this,Utils.sender,"Quiz Result "+examType.getText().toString(),result);
+                        mailAPI2.execute();
+                        Toast.makeText(Quiz.this, "Thanks for appearing in the test.", Toast.LENGTH_SHORT).show();
                         Intent i= new Intent(Quiz.this, HomeScreen.class);
-//                        i.putExtra("answered",String.valueOf(maxQues- finalUnanswered));
-//                        i.putExtra("unanswered",String.valueOf(finalUnanswered));
-//                        i.putExtra("score",String.valueOf(finalScore));
-//                        i.putExtra("timeLeft",String.valueOf(timeLeft));
-                        Toast.makeText(Quiz.this, "Thanks for appearing in the test. Your scores will be emailed to you", Toast.LENGTH_SHORT).show();
                         startActivity(i);
                     }
                 });
@@ -200,9 +209,6 @@ public class Quiz extends AppCompatActivity {
     }
     void setAnswer(int ques,String ans){
         answers.get(ques).setChoice(ans);
-        for (int i=0;i<answers.size();i++){
-            //Log.i(answers.get(i).getQid(),answers.get(i).getChoice());
-        }
     }
     void setCountDownTimer() {
         countDownTimer = new CountDownTimer(quiztime, 1000) {
@@ -226,12 +232,18 @@ public class Quiz extends AppCompatActivity {
                         score2++;
                     }
                 }
-                myref.setValue(String.valueOf(score2));
-                Intent i= new Intent(Quiz.this,Quiz_result.class);
-                i.putExtra("answered",String.valueOf(maxQues- unanswered3));
-                i.putExtra("unanswered",String.valueOf(unanswered3));
-                i.putExtra("score",String.valueOf(score2));
-                i.putExtra("timeLeft",String.valueOf(timeLeft));
+                myref.child("Answers").setValue(answers);
+                myref.child("Score").setValue(String.valueOf(score2));
+                String result="Name: "+preferences.getString("name","-")+"\n"
+                        +"Email: "+preferences.getString("email","-") +"\n"
+                        +"Phone Number: "+preferences.getString("phone","")+"\n"
+                        +"User ID: " + FirebaseAuth.getInstance().getCurrentUser().getUid() +"\n"
+                        +"Score: "+ String.valueOf(score2);
+
+                JavaMailAPI mailAPI1 = new JavaMailAPI(Quiz.this, Utils.sender,"Quiz Result "+examType.getText().toString(),result);
+                mailAPI1.execute();
+                Toast.makeText(Quiz.this, "Thanks for appearing in the test!", Toast.LENGTH_SHORT).show();
+                Intent i= new Intent(Quiz.this,HomeScreen.class);
                 startActivity(i);
 
             }
@@ -396,12 +408,20 @@ public class Quiz extends AppCompatActivity {
                 }
             }
             countDownTimer.cancel();
-            myref.setValue(String.valueOf(score1));
-            Intent i= new Intent(Quiz.this,Quiz_result.class);
-            i.putExtra("answered",String.valueOf(maxQues- unanswered2));
-            i.putExtra("unanswered",String.valueOf(unanswered2));
-            i.putExtra("score",String.valueOf(score1));
-            i.putExtra("timeLeft",String.valueOf(timeLeft));
+            myref.child("Answers").setValue(answers);
+            myref.child("Score").setValue(String.valueOf(score1));
+
+
+            String result="Name: "+preferences.getString("name","-")+"\n"
+                    +"Email: "+preferences.getString("email","-") +"\n"
+                    +"Phone Number: "+preferences.getString("phone","")+"\n"
+                    +"User ID: " + FirebaseAuth.getInstance().getCurrentUser().getUid() +"\n"
+                    +"Score: "+ String.valueOf(score1);
+
+            JavaMailAPI mailAPI2 = new JavaMailAPI(Quiz.this, Utils.sender,"Quiz Result "+examType.getText().toString(),result);
+            mailAPI2.execute();
+            Toast.makeText(this, "Thanks for appearing in the test!", Toast.LENGTH_SHORT).show();
+            Intent i= new Intent(Quiz.this,HomeScreen.class);
             startActivity(i);
         }
         doubleback=true;
@@ -429,13 +449,20 @@ public class Quiz extends AppCompatActivity {
                     score2++;
                 }
             }
-            myref.setValue(String.valueOf(score2));
+            myref.child("Answers").setValue(answers);
+            myref.child("Score").setValue(String.valueOf(score2));
 
-            Intent i= new Intent(Quiz.this,Quiz_result.class);
-            i.putExtra("answered",String.valueOf(maxQues- unanswered3));
-            i.putExtra("unanswered",String.valueOf(unanswered3));
-            i.putExtra("score",String.valueOf(score2));
-            i.putExtra("timeLeft",String.valueOf(timeLeft));
+
+            String result="Name: "+preferences.getString("name","-")+"\n"
+                    +"Email: "+preferences.getString("email","-") +"\n"
+                    +"Phone Number: "+preferences.getString("phone","")+"\n"
+                    +"User ID: " + FirebaseAuth.getInstance().getCurrentUser().getUid() +"\n"
+                    +"Score: "+ String.valueOf(score2);
+
+            JavaMailAPI mailAPI3 = new JavaMailAPI(Quiz.this, Utils.sender,"Quiz Result "+examType.getText().toString(),result);
+            mailAPI3.execute();
+            Toast.makeText(this, "Thanks for appearing in the test!", Toast.LENGTH_SHORT).show();
+            Intent i= new Intent(Quiz.this,HomeScreen.class);
             startActivity(i);
         }
     }
