@@ -52,6 +52,5 @@ public class MstFragment extends Fragment {
         manager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
-        recyclerView.setNestedScrollingEnabled(false);
     }
 }

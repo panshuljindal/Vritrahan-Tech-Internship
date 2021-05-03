@@ -6,20 +6,10 @@ public class QuestionModel {
     String option2;
     String option3;
     String option4;
-    String correct;
-    String id;
+    String answer;
+    String qid;
     public QuestionModel(){
 
-    }
-
-    public QuestionModel(String question, String option1, String option2, String option3, String option4, String correct, String id) {
-        this.question = question;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
-        this.correct = correct;
-        this.id = id;
     }
 
     public String getQuestion() {
@@ -62,19 +52,19 @@ public class QuestionModel {
         this.option4 = option4;
     }
 
-    public String getCorrect() {
-        return correct;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setCorrect(String correct) {
-        this.correct = correct;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
-    public String getId() {
-        return id;
+    public String getQid() {
+        return qid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setQid(String qid) {
+        this.qid = qid;
     }
 }

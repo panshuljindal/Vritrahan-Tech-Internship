@@ -129,12 +129,17 @@ public class StartQuizActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(question);
         Intent intent = new Intent(StartQuizActivity.this, Quiz.class);
-//        Log.i("json",json);
+        Log.i("json",json);
 //        Log.i("type",String.valueOf(finalQuestion.size()));
         intent.putExtra("question",json);
         //Log.i("type",type);
         intent.putExtra("type",type);
-        startActivity(intent);
+        if (question.size()==0){
+            Toast.makeText(this, "Test not Available", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            startActivity(intent);
+        }
     }
 
     @Override

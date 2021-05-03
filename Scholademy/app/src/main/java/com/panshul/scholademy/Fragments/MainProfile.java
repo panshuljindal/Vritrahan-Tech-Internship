@@ -26,11 +26,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.panshul.scholademy.Activity.HomeScreen;
 import com.panshul.scholademy.Activity.Login;
 import com.panshul.scholademy.Model.Profile;
 import com.panshul.scholademy.R;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainProfile extends Fragment {
@@ -41,6 +44,8 @@ public class MainProfile extends Fragment {
     Button logout;
     DatabaseReference myref;
     Profile profile;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +58,9 @@ public class MainProfile extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_main_profile, container, false);
         findViewByIds();
-
+        loadData();
+        pref = view.getContext().getSharedPreferences("com.panshul.scholademy.profile",Context.MODE_PRIVATE);
+        editor = pref.edit();
         uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         myref = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Profile");
 
@@ -62,11 +69,12 @@ public class MainProfile extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 profile = snapshot.getValue(Profile.class);
                 setProfile();
+                saveData();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                loadData();
             }
         });
         editProfile.bringToFront();
@@ -92,7 +100,7 @@ public class MainProfile extends Fragment {
                 startActivity(intent);
             }
         });
-
+        setProfile();
         return view;
     }
     void clearData(){
@@ -110,7 +118,7 @@ public class MainProfile extends Fragment {
     void setProfile(){
         try {
             name.setText(profile.getName());
-            email.setText(profile.getEmail());
+            email.setText(profile.getEmail().toLowerCase());
             phone.setText(profile.getPhone());
             age.setText(profile.getAge()+" years");
             String str = profile.getExams();
@@ -192,6 +200,7 @@ public class MainProfile extends Fragment {
             registerNcst.setText("Not Registered");
         }
 
+
     }
     void findViewByIds(){
         name = view.findViewById(R.id.nameTextView);
@@ -209,5 +218,23 @@ public class MainProfile extends Fragment {
         editProfile = view.findViewById(R.id.editProfile);
 
         logout  = view.findViewById(R.id.button3);
+    }
+    void saveData(){
+        Gson gson = new Gson();
+        String json = gson.toJson(profile);
+        editor.putString("profile",json);
+        editor.apply();
+    }
+    void loadData(){
+        try {
+            String json1 = pref.getString("profile","");
+            Type type = new TypeToken<Profile>() {}.getType();
+            Gson gson = new Gson();
+            profile = gson.fromJson(json1,type);
+        }
+        catch (Exception e){
+
+        }
+
     }
 }

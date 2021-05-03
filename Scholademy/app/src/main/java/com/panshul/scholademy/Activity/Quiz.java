@@ -15,12 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.panshul.scholademy.Model.Answers;
+import com.panshul.scholademy.Model.PostAnswer;
 import com.panshul.scholademy.Model.QuestionModel;
 import com.panshul.scholademy.R;
 import com.panshul.scholademy.Services.JavaMailAPI;
@@ -36,6 +38,7 @@ public class Quiz extends AppCompatActivity {
     TextView timer,questionNumber,question,option1Text,option2Text,option3Text,option4Text,examType;
     ImageView option1Image,option2Image,option3Image,option4Image;
     ArrayList<Answers> answers;
+    ArrayList<PostAnswer> postAnswer;
     Button next,previous,submit;
     int quesNo,maxQues;
     int quiztime = 600000;
@@ -107,15 +110,17 @@ public class Quiz extends AppCompatActivity {
                 submitsubmit = dialog.findViewById(R.id.warningSubmit);
                 int unanswered1 = 0;
                 double score = 0;
+                postAnswer = new ArrayList<>();
                 for (int i = 0;i<answers.size();i++){
+                    postAnswer.add(new PostAnswer(finalQuestion.get(i).getQuestion(),answers.get(i).getChoice()));
                     if (answers.get(i).getChoice().equals("null")){
                         unanswered1++;
                     }
+                    else if (answers.get(i).getChoice().equals(finalQuestion.get(i).getAnswer())){
+                        score++;
+                    }
                     else {
                         score = score-0.25;
-                    }
-                    if (answers.get(i).getChoice().equals(finalQuestion.get(i).getCorrect())){
-                        score++;
                     }
                 }
                 timeLeftTextView.setText(timer(timeLeft/1000));
@@ -133,7 +138,7 @@ public class Quiz extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         countDownTimer.cancel();
-                        myref.child("Answers").setValue(answers);
+                        myref.child("Answers").setValue(postAnswer);
                         myref.child("Score").setValue(String.valueOf(finalScore));
                         String result="Name: "+preferences.getString("name","-")+"\n"
                                 +"Email: "+preferences.getString("email","-") +"\n"
@@ -222,17 +227,20 @@ public class Quiz extends AppCompatActivity {
             public void onFinish() {
                 int unanswered3 = 0;
                 double score2 = 0;
+                postAnswer = new ArrayList<>();
                 for (int i = 0;i<answers.size();i++){
+                    postAnswer.add(new PostAnswer(finalQuestion.get(i).getQuestion(),answers.get(i).getChoice()));
                     if (answers.get(i).getChoice().equals("null")){
                         unanswered3++;
-                    }else {
-                        score2 = score2-0.25;
                     }
-                    if (answers.get(i).getChoice().equals(finalQuestion.get(i).getCorrect())){
+                    else if (answers.get(i).getChoice().equals(finalQuestion.get(i).getAnswer())){
                         score2++;
                     }
+                    else {
+                        score2 = score2-0.25;
+                    }
                 }
-                myref.child("Answers").setValue(answers);
+                myref.child("Answers").setValue(postAnswer);
                 myref.child("Score").setValue(String.valueOf(score2));
                 String result="Name: "+preferences.getString("name","-")+"\n"
                         +"Email: "+preferences.getString("email","-") +"\n"
@@ -378,7 +386,7 @@ public class Quiz extends AppCompatActivity {
         loadData(questions);
         answers = new ArrayList<>();
         for (int i=0;i<finalQuestion.size();i++){
-            answers.add(new Answers(finalQuestion.get(i).getId(),"null"));
+            answers.add(new Answers(finalQuestion.get(i).getQid(),"null"));
         }
     }
     public void loadData(String ques){
@@ -396,19 +404,21 @@ public class Quiz extends AppCompatActivity {
         if(doubleback){
             int unanswered2 = 0;
             double score1 = 0;
+            postAnswer = new ArrayList<>();
             for (int i = 0;i<answers.size();i++){
+                postAnswer.add(new PostAnswer(finalQuestion.get(i).getQuestion(),answers.get(i).getChoice()));
                 if (answers.get(i).getChoice().equals("null")){
                     unanswered2++;
+                }
+                else if (answers.get(i).getChoice().equals(finalQuestion.get(i).getAnswer())){
+                    score1++;
                 }
                 else {
                     score1 = score1-0.25;
                 }
-                if (answers.get(i).getChoice().equals(finalQuestion.get(i).getCorrect())){
-                    score1++;
-                }
             }
             countDownTimer.cancel();
-            myref.child("Answers").setValue(answers);
+            myref.child("Answers").setValue(postAnswer);
             myref.child("Score").setValue(String.valueOf(score1));
 
 
@@ -440,16 +450,21 @@ public class Quiz extends AppCompatActivity {
         if (cheat){
             int unanswered3 = 0;
             double score2 = 0;
+            postAnswer = new ArrayList<>();
             for (int i = 0;i<answers.size();i++){
+                postAnswer.add(new PostAnswer(finalQuestion.get(i).getQuestion(),answers.get(i).getChoice()));
                 if (answers.get(i).getChoice().equals("null")){
                     unanswered3++;
-                    score2 = score2-0.25;
                 }
-                if (answers.get(i).getChoice().equals(finalQuestion.get(i).getCorrect())){
+                else if (answers.get(i).getChoice().equals(finalQuestion.get(i).getAnswer())){
                     score2++;
                 }
+                else {
+                    score2= score2-0.25;
+                }
+
             }
-            myref.child("Answers").setValue(answers);
+            myref.child("Answers").setValue(postAnswer);
             myref.child("Score").setValue(String.valueOf(score2));
 
 

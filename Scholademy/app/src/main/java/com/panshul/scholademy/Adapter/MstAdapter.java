@@ -54,7 +54,6 @@ public class MstAdapter extends RecyclerView.Adapter<MstAdapter.MyViewHolder> {
         holder.takeTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SharedPreferences preferences = mContext.getSharedPreferences("com.panshul.scholademy.mst",Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 if (holder.examName.getText().toString().contains("IIT JEE")){
