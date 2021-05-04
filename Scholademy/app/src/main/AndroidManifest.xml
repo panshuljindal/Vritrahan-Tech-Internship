@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.panshul.scholademy">
+    package="com.vritrahan.scholademy1">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Scholademy">
-        <activity android:name=".Activity.Login"></activity>
-        <activity android:name=".Activity.Quiz" />
-        <activity android:name=".Activity.HomeScreen" />
-        <activity android:name=".Activity.SignUp" />
-        <activity android:name=".Activity.StartQuizActivity" />
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.SplashScreen">
+        <activity android:name="com.vritrahan.scholademy1.Activity.Login"></activity>
+        <activity android:name="com.vritrahan.scholademy1.Activity.Quiz" />
+        <activity android:name="com.vritrahan.scholademy1.Activity.HomeScreen" />
+        <activity android:name="com.vritrahan.scholademy1.Activity.SignUp" />
+        <activity android:name="com.vritrahan.scholademy1.Activity.StartQuizActivity" />
+        <activity android:name="com.vritrahan.scholademy1.Activity.MainActivity" />
+        <activity android:name="com.vritrahan.scholademy1.Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
