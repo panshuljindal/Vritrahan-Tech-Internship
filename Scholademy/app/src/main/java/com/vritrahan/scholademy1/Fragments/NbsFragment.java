@@ -1,5 +1,7 @@
 package com.vritrahan.scholademy1.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -51,9 +53,12 @@ public class NbsFragment extends Fragment {
                             fatherAnnualIncome.getText().toString(),fatherIncomeProof.getText().toString()
                     );
                     String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference myref = FirebaseDatabase.getInstance().getReference("Users");
-                    myref.child("NBS").child("uid").child(UUID.randomUUID().toString()).setValue(model);
-                    String contactUs = "Father Name: "+fatherName.getText().toString()+"\n"+
+                    DatabaseReference myref = FirebaseDatabase.getInstance().getReference("NBS");
+                    myref.child(uid).child(UUID.randomUUID().toString()).setValue(model);
+                    SharedPreferences pref = view.getContext().getSharedPreferences("com.vritrahan.scholademy.userdata", Context.MODE_PRIVATE);
+                    String contactUs = "Name: " + pref.getString("name","")+"\n"
+                            +"User ID: " + pref.getString("uid","") +"\n"
+                            +"Father Name: "+fatherName.getText().toString()+"\n"+
                             "Father Profession: "+fatherProfession.getText().toString()+"\n"+
                             "Father Annual Income: "+fatherAnnualIncome.getText().toString()+"\n"+
                             "Father Income Proof: "+fatherIncomeProof.getText().toString();

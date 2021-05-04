@@ -56,7 +56,7 @@ public class MainProfile extends Fragment {
         view= inflater.inflate(R.layout.fragment_main_profile, container, false);
         findViewByIds();
         loadData();
-        pref = view.getContext().getSharedPreferences("com.panshul.scholademy.profile",Context.MODE_PRIVATE);
+        pref = view.getContext().getSharedPreferences("com.vritrahan.scholademy.profile",Context.MODE_PRIVATE);
         editor = pref.edit();
         uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         myref = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("Profile");
@@ -101,12 +101,12 @@ public class MainProfile extends Fragment {
         return view;
     }
     void clearData(){
-        SharedPreferences pref = view.getContext().getSharedPreferences("com.panshul.scholademy.userdata", Context.MODE_PRIVATE);
+        SharedPreferences pref = view.getContext().getSharedPreferences("com.vritrahan.scholademy.userdata", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
         editor.apply();
 
-        SharedPreferences pref1 = view.getContext().getSharedPreferences("com.panshul.scholademy.mst", Context.MODE_PRIVATE);
+        SharedPreferences pref1 = view.getContext().getSharedPreferences("com.vritrahan.scholademy.mst", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor1 = pref1.edit();
         editor1.clear();
         editor1.apply();

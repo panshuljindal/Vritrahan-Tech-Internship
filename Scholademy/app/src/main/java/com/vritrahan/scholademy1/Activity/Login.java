@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         myref = db.getReference("Users");
 
-        pref = getSharedPreferences("com.panshul.scholademy.userdata",MODE_PRIVATE);
+        pref = getSharedPreferences("com.vritrahan.scholademy.userdata",MODE_PRIVATE);
         editor = pref.edit();
 
     }

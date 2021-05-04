@@ -51,7 +51,7 @@ public class Quiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        preferences = getSharedPreferences("com.panshul.scholademy.userdata",MODE_PRIVATE);
+        preferences = getSharedPreferences("com.vritrahan.scholademy.userdata",MODE_PRIVATE);
         cheat=false;
         findViewByIds();
         initialise();

@@ -57,7 +57,7 @@ public class ProfileFragment extends Fragment {
         return view;
     }
     public void loadData(){
-        SharedPreferences pref = view.getContext().getSharedPreferences("com.panshul.scholademy.userdata", Context.MODE_PRIVATE);
+        SharedPreferences pref = view.getContext().getSharedPreferences("com.vritrahan.scholademy.userdata", Context.MODE_PRIVATE);
         name.setText(pref.getString("name",""));
         emailID.setText(pref.getString("email",""));
         phoneNumber.setText(pref.getString("phone",""));
